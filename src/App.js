@@ -1,9 +1,11 @@
 import { Admin, Home } from "./pages"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { SocketContext, socket } from "./context/socket";
 import './App.css';
 
 function App() {
   return (
+    <SocketContext.Provider value={socket}>
     <div className="App">
       <Router>
         <Switch>
@@ -11,7 +13,8 @@ function App() {
           <Route path="/"><Home /></Route>
         </Switch>
       </Router>
-    </div>
+      </div>
+    </SocketContext.Provider>
   );
 }
 
